@@ -1,0 +1,52 @@
+set style data lines
+set style fill transparent solid 0.4 noborder
+
+#plot 'eval/0.dat' us 2:3 t 'y' w p,\
+#'' us 2:4 t 'y_{mean}' lw 2,\
+#'' us 2:7 t 'y_{best}',\
+#'' us 2:(log($8)) t 'log(n_{terminals})',\
+#'' us 2:(log($9)) t 'log(n_{nonTerminals})'
+
+#'' us 2:($5-$6) t 'y_{regret}',\
+#exit
+#pause(-1)
+
+set grid
+set log y
+set ylabel 'cost to find hidden leaf'
+set xlabel 'branch of hidden line (of depth 3)'
+
+plot [:] \
+'eval/singular23_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 1 not, \
+'eval/singular22_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 2 not, \
+'eval/singular21_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 3 not, \
+'eval/singular13_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 4 not, \
+'eval/singular12_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 5 not, \
+'eval/singular11_maxDepth3_hiddenX.dat' us 0:($1-$2):($1+$2) with filledcurves lt 6 not, \
+'eval/singular23_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 1 t 'RR-IL', \
+'eval/singular22_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 2 t 'RR-RR', \
+'eval/singular21_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 3 t 'RR-Th', \
+'eval/singular13_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 4 t 'Th-IL', \
+'eval/singular12_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 5 t 'Th-RR', \
+'eval/singular11_maxDepth3_hiddenX.dat' us 0:1 lw 3 lt 6 t 'Th-Th', \
+
+pause(-1)
+
+set ylabel 'cost to find hidden leaf'
+set xlabel 'depth of hidden line (of 3rd branch)'
+
+plot [:] \
+'eval/singular23_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 1 not, \
+'eval/singular13_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 2 not, \
+'eval/singular22_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 3 not, \
+'eval/singular12_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 4 not, \
+'eval/singular21_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 5 not, \
+'eval/singular11_maxDepthX_hidden3.dat' us ($0+1):($1-$2):($1+$2) with filledcurves lt 6 not, \
+'eval/singular23_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 1 t 'RR-IL', \
+'eval/singular13_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 2 t 'Th-IL', \
+'eval/singular22_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 3 t 'RR-RR', \
+'eval/singular12_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 4 t 'Th-RR', \
+'eval/singular21_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 5 t 'RR-Th', \
+'eval/singular11_maxDepthX_hidden3.dat' us ($0+1):1 lw 2 lt 6 t 'Th-Th', \
+
+pause(-1)

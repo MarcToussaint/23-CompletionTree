@@ -1,0 +1,6 @@
+[submodule "rai"]
+	path = rai
+	url = git@github.com:MarcToussaint/rai.git
+[submodule "lgp-benchmarks"]
+	path = lgp-benchmarks
+	url = git@github.com:MarcToussaint/23-lgp-benchmarks.git

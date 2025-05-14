@@ -1,0 +1,47 @@
+set style data lines
+set style fill transparent solid 0.4 noborder
+
+#plot 'eval/0.dat' us 2:3 t 'y' w p,\
+#'' us 2:4 t 'y_{mean}' lw 2,\
+#'' us 2:7 t 'y_{best}',\
+#'' us 2:(log($8)) t 'log(n_{terminals})',\
+#'' us 2:(log($9)) t 'log(n_{nonTerminals})'
+
+#'' us 2:($5-$6) t 'y_{regret}',\
+#exit
+#pause(-1)
+
+set grid
+unset log y
+set ylabel 'mean value (of best leaf/all samples)'
+set xlabel 'cost'
+set grid
+set key bottom right
+
+plot [:] \
+'eval/method11.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 1 not, \
+'eval/method11.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 1 not, \
+'eval/method12.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 2 not, \
+'eval/method12.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 2 not, \
+'eval/method13.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 3 not, \
+'eval/method13.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 3 not, \
+'eval/method21.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 4 not, \
+'eval/method21.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 4 not, \
+'eval/method22.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 5 not, \
+'eval/method22.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 5 not, \
+'eval/method23.dat' us 3:($7-$8):($7+$8) with filledcurves  lt 6 not, \
+'eval/method23.dat' us 3:($13-$14):($13+$14) with filledcurves  lt 6 not, \
+'eval/method11.dat' us 3:($13) lw 3 lt 1 t 'Th-Th best', \
+'eval/method11.dat' us 3:($7) lw 3 lt 1 dt 2 t 'Th-Th mean', \
+'eval/method12.dat' us 3:($13) lw 3 lt 2 t 'Th-RR best', \
+'eval/method12.dat' us 3:($7) lw 3 lt 2 dt 2 t 'Th-RR mean', \
+'eval/method13.dat' us 3:($13) lw 3 lt 3 t 'Th-IL best', \
+'eval/method13.dat' us 3:($7) lw 3 lt 3 dt 2 t 'Th-IL mean', \
+'eval/method21.dat' us 3:($13) lw 3 lt 4 t 'RR-Th best', \
+'eval/method21.dat' us 3:($7) lw 3 lt 4 dt 2 t 'RR-Th mean', \
+'eval/method22.dat' us 3:($13) lw 3 lt 5 t 'RR-RR best', \
+'eval/method22.dat' us 3:($7) lw 3 lt 5 dt 2 t 'RR-RR mean', \
+'eval/method23.dat' us 3:($13) lw 3 lt 6 t 'RR-IL best', \
+'eval/method23.dat' us 3:($7) lw 3 lt 6 dt 2 t 'RR-IL mean', \
+
+pause(-1)

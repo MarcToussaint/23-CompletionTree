@@ -1,0 +1,79 @@
+set style data lines
+
+#plot 'eval/0.dat' us 2:3 t 'y' w p,\
+#'' us 2:4 t 'y_{mean}' lw 2,\
+#'' us 2:7 t 'y_{best}',\
+#'' us 2:(log($8)) t 'log(n_{terminals})',\
+#'' us 2:(log($9)) t 'log(n_{nonTerminals})'
+
+#'' us 2:($5-$6) t 'y_{regret}',\
+#exit
+#pause(-1)
+
+set grid
+
+plot [:] \
+'eval/0.dat' us 2:4 t 'y_{mean}' ls 1, \
+'eval/1.dat' us 2:4 not ls 1, \
+'eval/2.dat' us 2:4 not ls 1, \
+'eval/3.dat' us 2:4 not ls 1, \
+'eval/4.dat' us 2:4 not ls 1, \
+'eval/5.dat' us 2:4 not ls 1, \
+'eval/6.dat' us 2:4 not ls 1, \
+'eval/7.dat' us 2:4 not ls 1, \
+'eval/8.dat' us 2:4 not ls 1, \
+'eval/9.dat' us 2:4 not ls 1, \
+'eval/z.dat' us 3:($7-$8):($7+$8) with filledcurves fill solid 0.4 lc rgb 'yellow', \
+'eval/z.dat' us 3:($7) lc rgb 'orange' lw 2, \
+'eval/0.dat' us 2:5 t 'y_{best}' ls 2, \
+'eval/1.dat' us 2:5 not ls 2, \
+'eval/2.dat' us 2:5 not ls 2, \
+'eval/3.dat' us 2:5 not ls 2, \
+'eval/4.dat' us 2:5 not ls 2, \
+'eval/5.dat' us 2:5 not ls 2, \
+'eval/6.dat' us 2:5 not ls 2, \
+'eval/7.dat' us 2:5 not ls 2, \
+'eval/8.dat' us 2:5 not ls 2, \
+'eval/9.dat' us 2:5 not ls 2, \
+# 'evalRef/0.dat' us 2:4 t 'y_{mean} ref' ls 3, \
+# 'evalRef/1.dat' us 2:4 not ls 3, \
+# 'evalRef/2.dat' us 2:4 not ls 3, \
+# 'evalRef/3.dat' us 2:4 not ls 3, \
+# 'evalRef/4.dat' us 2:4 not ls 3, \
+# 'evalRef/5.dat' us 2:4 not ls 3, \
+# 'evalRef/6.dat' us 2:4 not ls 3, \
+# 'evalRef/7.dat' us 2:4 not ls 3, \
+# 'evalRef/8.dat' us 2:4 not ls 3, \
+# 'evalRef/9.dat' us 2:4 not ls 3, \
+# 'evalRef/0.dat' us 2:7 t 'y_{best} ref' ls 4, \
+# 'evalRef/1.dat' us 2:7 not ls 4, \
+# 'evalRef/2.dat' us 2:7 not ls 4, \
+# 'evalRef/3.dat' us 2:7 not ls 4, \
+# 'evalRef/4.dat' us 2:7 not ls 4, \
+# 'evalRef/5.dat' us 2:7 not ls 4, \
+# 'evalRef/6.dat' us 2:7 not ls 4, \
+# 'evalRef/7.dat' us 2:7 not ls 4, \
+# 'evalRef/8.dat' us 2:7 not ls 4, \
+# 'evalRef/9.dat' us 2:7 not ls 4, \
+#'eval/0.dat' us 2:(log($8)) t 'n_{terminal}' ls 5, \
+#'eval/1.dat' us 2:(log($8)) not ls 5, \
+#'eval/2.dat' us 2:(log($8)) not ls 5, \
+#'eval/3.dat' us 2:(log($8)) not ls 5, \
+#'eval/4.dat' us 2:(log($8)) not ls 5, \
+#'eval/5.dat' us 2:(log($8)) not ls 5, \
+#'eval/6.dat' us 2:(log($8)) not ls 5, \
+#'eval/7.dat' us 2:(log($8)) not ls 5, \
+#'eval/8.dat' us 2:(log($8)) not ls 5, \
+#'eval/9.dat' us 2:(log($8)) not ls 5, \
+#'evalRef/0.dat' us 2:(log($8)) t 'n_{terminal} ref' ls 6, \
+#'evalRef/1.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/2.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/3.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/4.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/5.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/6.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/7.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/8.dat' us 2:(log($8)) not ls 6, \
+#'evalRef/9.dat' us 2:(log($8)) not ls 6, \
+
+pause(-1)
